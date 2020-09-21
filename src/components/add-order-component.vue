@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-button pill class="mx-3" variant="info" v-b-modal.modal-prevent-closing>
+    <b-button class="mx-3" variant="info" v-b-modal.modal-prevent-closing>
       <b-icon icon="plus"></b-icon>
     </b-button>
     <b-modal
@@ -11,7 +11,7 @@
     >
       <b-form ref="form">
         <b-form-group
-                label="Наименование позиций заказа"
+                label="Наименование позиции заказа"
                 label-for="title-input"
         >
           <b-form-input
@@ -21,7 +21,7 @@
           ></b-form-input>
         </b-form-group>
         <b-form-group
-                label="Данные клиента"
+                label="ФИО Клиента"
                 label-for="clientName-input"
         >
           <b-form-input
@@ -31,7 +31,7 @@
         </b-form-group>
         <b-form-group
                 label-for="managerName-input"
-                label="ФИО менеджера"
+                label="ФИО Менеджера"
         >
           <b-form-input
                   id="manager-input"
@@ -47,7 +47,10 @@
         </b-form-group>
       </b-form>
       <template v-slot:modal-footer>
-        <div class="w-100">
+        <div class="w-100 d-flex justify-content-between">
+          <b-checkbox v-model="addMore">
+            Добавить еще
+          </b-checkbox>
           <b-button
                   variant="primary"
                   size="sm"
@@ -68,6 +71,7 @@
     name: 'addOrderComponent',
     data() {
       return {
+        addMore: false,
         isModalVisible: false,
         status: 'a',
         title: '',
@@ -91,13 +95,18 @@
         }
         this.$store.commit('addOrder', formData)
         this.clearForm()
+        if (!this.addMore) {
+          this.closeModal();
+        }
       },
       clearForm() {
-        this.isModalVisible = false
         this.title = ''
         this.managerName = ''
         this.clientName = ''
         this.status = 'a'
+      },
+      closeModal() {
+        this.isModalVisible = false
       }
     },
     computed: {

@@ -1,5 +1,5 @@
 <template>
-  <b-navbar variant="light" type="light">
+  <b-navbar variant="light" type="light" sticky>
     <b-navbar-nav class="ml-auto mr-5">
       <b-form-input v-model="searchValue" placeholder="Поиск"></b-form-input>
       <add-order-component/>

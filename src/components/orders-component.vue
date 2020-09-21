@@ -5,14 +5,14 @@
                head-variant="dark"
                :fields="fields"
                :items="orders">
-        <template v-slot:cell(selected)="row">
+        <template v-slot:cell(status)="row">
           <div class="row align-items-center">
-            <div class="dot text-center" :style="{'background-color': statusColors[row.item.selected]}"></div>
-            {{statusVariants[row.item.selected]}}
+            <div class="dot text-center" :style="{'background-color': statusColors[row.item.status]}"></div>
+            {{statusVariants[row.item.status]}}
           </div>
         </template>
-        <template v-slot:cell(delete)="data">
-          <b-button variant="light" size="sm" @click="deleteOrder(data.item.id)"
+        <template v-slot:cell(delete)="row">
+          <b-button variant="light" size="sm" @click="deleteOrder(row.item.id)"
                     class="ml-auto">
             <b-icon icon="trash"></b-icon>
           </b-button>
@@ -74,7 +74,7 @@
     vertical-align: center;
     border-radius: 50%;
     margin-right: 8px;
-    height: 20px;
-    width: 20px;
+    height: 16px;
+    width: 16px;
   }
 </style>

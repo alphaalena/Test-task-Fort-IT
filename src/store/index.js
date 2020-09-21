@@ -5,7 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    orders: [],
+    orders: Array(30).fill(null).map((_, index) => {
+      return {
+        id: `${Date.now() + index}`,
+        title: `Заказ ${index}`,
+        clientName: `Клиент ${index}`,
+        managerName: `Менеджер ${index}`,
+        status: ['a', 'b', 'c'][index % 3],
+      }
+    }),
     searchValue: ''
   },
   mutations: {

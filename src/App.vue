@@ -1,14 +1,9 @@
 <template>
   <div id="app">
-    <div class="page" v-if="isLoading">
-      <b-spinner class="spinner" :variant="'primary'" :key="'primary'"></b-spinner>
-    </div>
-    <div v-else>
-      <header-component/>
-      <div class="flex">
-        <sidebar-component/>
-        <router-view/>
-      </div>
+    <header-component/>
+    <div class="flex">
+      <sidebar-component/>
+      <router-view/>
     </div>
   </div>
 </template>
@@ -18,15 +13,6 @@
 
   export default {
     components: { SidebarComponent, HeaderComponent },
-    data() {
-      return {
-        isLoading: true,
-      }
-    },
-    async mounted() {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      this.isLoading = false
-    },
   }
 </script>
 <style lang="scss">
