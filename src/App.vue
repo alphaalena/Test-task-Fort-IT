@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="page" v-if="getSpinner">
+    <div class="page" v-if="isLoading">
       <b-spinner class="spinner" :variant="'primary'" :key="'primary'"></b-spinner>
     </div>
     <div v-else>
@@ -14,19 +14,19 @@
 </template>
 <script>
   import HeaderComponent from './components/header-component'
-  import sidebarComponent from './components/sidebar-component'
+  import SidebarComponent from './components/sidebar-component'
 
   export default {
-    components: { sidebarComponent, HeaderComponent },
+    components: { SidebarComponent, HeaderComponent },
     data() {
       return {
-        getSpinner: true,
+        isLoading: true,
       }
     },
-    mounted() {
-      this.getSpinner = false
+    async mounted() {
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      this.isLoading = false
     },
-
   }
 </script>
 <style lang="scss">
