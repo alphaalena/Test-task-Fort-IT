@@ -1,0 +1,15 @@
+$secondary: #202832;
+$info: #6672FB;
+$link-hover-color: #ffffff;
+$input-btn-focus-color: rgba(110, 159, 246, 0.25);
+$navbar-light-focus-color: #6672fb;
+$dropdown-border-color:rgba(110, 159, 246, 0.25);
+$dropdown-link-active-bg: #afcbf6;
+$table-dark-bg:#7FAAF8;
+$table-dark-border-color: #7FAAF8;
+$table-hover-bg:#F9F9FA;
+$table-dark-color:#F9F9FA;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index';
+@import 'overrides';
