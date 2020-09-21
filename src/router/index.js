@@ -13,41 +13,41 @@ const routes = [
   {
     path: '/extension',
     name: 'extension',
-    component: () => import(/* webpackChunkName: "about" */ '../views/extension.vue')
+    component: () => import('../views/extension.vue')
   },
   {
     path: '/design',
     name: 'design',
-    component: () => import(/* webpackChunkName: "about" */ '../views/design.vue')
+    component: () => import('../views/design.vue')
   },
   {
     path: '/sales',
     name: 'sales',
-    component: () => import(/* webpackChunkName: "about" */ '../views/sales.vue')
+    component: () => import('../views/sales.vue')
   },
   {
     path: '/shopper',
     name: 'shopper',
-    component: () => import(/* webpackChunkName: "about" */ '../views/shopper.vue')
+    component: () => import('../views/shopper.vue')
   },
   {
     path: '/marketing',
     name: 'marketing',
-    component: () => import(/* webpackChunkName: "about" */ '../views/marketing.vue')
+    component: () => import('../views/marketing.vue')
   },
   {
     path: '/system',
     name: 'system',
-    component: () => import(/* webpackChunkName: "about" */ '../views/system.vue')
+    component: () => import('../views/system.vue')
   },
   {
     path: '/helper',
     name: 'helper',
-    component: () => import(/* webpackChunkName: "about" */ '../views/helper.vue')
+    component: () => import('../views/helper.vue')
   },
   { path: '/contact',
     name: 'contact',
-    component: () => import(/* webpackChunkName: "about" */ '../views/contact.vue')
+    component: () => import('../views/contact.vue')
 
   }
 ]
