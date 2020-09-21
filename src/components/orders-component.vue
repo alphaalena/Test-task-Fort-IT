@@ -4,15 +4,15 @@
       <b-table hover no-border-collapse
                head-variant="dark"
                :fields="fields"
-               :items="items">
+               :items="orders">
         <template v-slot:cell(selected)="row">
           <div class="row align-items-center">
-            <div class="dot text-center" :style="{'background-color': colors[row.item.selected]}"></div>
+            <div class="dot text-center" :style="{'background-color': statusColors[row.item.selected]}"></div>
             {{statusVariants[row.item.selected]}}
           </div>
         </template>
         <template v-slot:cell(delete)="data">
-          <b-button variant="light" size="sm" @click="deletePosition(data.item.id)"
+          <b-button variant="light" size="sm" @click="deleteOrder(data.item.id)"
                     class="ml-auto">
             <b-icon icon="trash"></b-icon>
           </b-button>
@@ -21,29 +21,33 @@
     </b-row>
   </b-col>
 </template>
+
 <script>
   export default {
     name: 'tableComponent',
     data() {
       return {
-        options:
-          { a: 'Предстоящие', b: 'В процессе', c: 'Завершенные' },
-        colors: { a: '#6672FB', b: '#D88E45', c: '#cccccc' },
+        statusVariants: {
+          a: 'Предстоящие',
+          b: 'В процессе',
+          c: 'Завершенные'
+        },
+        statusColors: { a: '#6672FB', b: '#D88E45', c: '#cccccc' },
         fields: [
           {
-            key: 'name',
+            key: 'title',
             label: 'Заказ',
           },
           {
-            key: 'client',
+            key: 'clientName',
             label: 'Клиент',
           },
           {
-            key: 'manager',
+            key: 'managerName',
             label: 'Менеджер',
           },
           {
-            key: 'selected',
+            key: 'status',
             label: 'Статус',
           },
           {
@@ -54,14 +58,14 @@
       }
     },
     methods: {
-      deletePosition(id) {
+      deleteOrder(id) {
         this.$store.commit('deleteOrder', id)
-      }
+      },
     },
     computed: {
-      items() {
+      orders() {
         return this.$store.getters.filteredOrders
-      }
+      },
     },
   }
 </script>

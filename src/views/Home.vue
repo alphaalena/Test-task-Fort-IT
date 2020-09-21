@@ -5,7 +5,7 @@
 <script>
 
 
-import TableComponent from '../components/table-component'
+import TableComponent from '../components/orders-component'
 export default {
   name: 'Home',
   components: { TableComponent }
