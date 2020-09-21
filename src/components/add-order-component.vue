@@ -7,35 +7,35 @@
             id="modal-prevent-closing"
             ref="modal"
             title="Добавление заказа"
-            v-model="visible"
+            v-model="isModalVisible"
     >
       <b-form ref="form">
         <b-form-group
                 label="Наименование позиций заказа"
-                label-for="name-input"
+                label-for="title-input"
         >
           <b-form-input
                   id="name-input"
-                  v-model="name"
+                  v-model="title"
                   required
           ></b-form-input>
         </b-form-group>
         <b-form-group
                 label="Данные клиента"
-                label-for="client-input"
+                label-for="clientName-input"
         >
           <b-form-input
                   id="client-input"
-                  v-model="client"
+                  v-model="clientName"
           ></b-form-input>
         </b-form-group>
         <b-form-group
-                label-for="manager-input"
+                label-for="managerName-input"
                 label="ФИО менеджера"
         >
           <b-form-input
                   id="manager-input"
-                  v-model="manager"
+                  v-model="managerName"
                   required
           ></b-form-input>
         </b-form-group>
@@ -43,7 +43,7 @@
                 label="Статус заказа"
                 label-for="status-input"
         >
-          <b-form-select v-model="status" :options="options"></b-form-select>
+          <b-form-select v-model="status" :options="statusVariants"></b-form-select>
         </b-form-group>
       </b-form>
       <template v-slot:modal-footer>
@@ -53,7 +53,7 @@
                   size="sm"
                   class="float-right"
                   @click="submitHandler"
-                  :disabled="!valid"
+                  :disabled="!isFormValid"
           >
             Сохранить
           </b-button>
@@ -62,17 +62,18 @@
     </b-modal>
   </div>
 </template>
+
 <script>
   export default {
-    name: 'addPositionsComponent',
+    name: 'addOrderComponent',
     data() {
       return {
-        visible: false,
+        isModalVisible: false,
         status: 'a',
-        name: '',
-        manager: '',
-        client: '',
-        options: [
+        title: '',
+        managerName: '',
+        clientName: '',
+        statusVariants: [
           { value: 'a', text: 'Предстоящие' },
           { value: 'b', text: 'В процессе' },
           { value: 'c', text: 'Завершенные' },
@@ -82,24 +83,26 @@
     methods: {
       submitHandler() {
         const formData = {
-          name: this.name.trim(),
-          manager: this.manager.trim(),
-          client: this.client.trim(),
-          selected: this.status,
+          title: this.title.trim(),
+          managerName: this.managerName.trim(),
+          clientName: this.clientName.trim(),
+          status: this.status,
           id: Date.now().toString(),
         }
-        console.log(formData)
-        this.$store.commit('changeListOfPosition', formData)
-        this.visible = false
-        this.name = ''
-        this.manager = ''
-        this.client = ''
-        this.status = 'a'
+        this.$store.commit('addOrder', formData)
+        this.clearForm()
       },
+      clearForm() {
+        this.isModalVisible = false
+        this.title = ''
+        this.managerName = ''
+        this.clientName = ''
+        this.status = 'a'
+      }
     },
     computed: {
-      valid() {
-        return this.name.trim() && this.manager.trim() && this.client.trim()
+      isFormValid() {
+        return this.title.trim() && this.managerName.trim() && this.clientName.trim()
       },
     },
   }

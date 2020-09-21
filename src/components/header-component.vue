@@ -2,7 +2,7 @@
   <b-navbar variant="light" type="light">
     <b-navbar-nav class="ml-auto mr-5">
       <b-form-input v-model="search" placeholder="Поиск"></b-form-input>
-      <add-positions-component/>
+      <add-order-component/>
       <b-nav-item-dropdown class="ml-5" text="text">
         <template v-slot:button-content class="position-absolute dropdown-menu-right">
             <span>
@@ -17,10 +17,10 @@
   </b-navbar>
 </template>
 <script>
-  import AddPositionsComponent from './add-positions-component'
+  import addOrderComponent from './add-order-component'
   export default {
     name: 'headerComponent',
-    components: { AddPositionsComponent },
+    components: { addOrderComponent },
     data() {
       return {
         search: ''

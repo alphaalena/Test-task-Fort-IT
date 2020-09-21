@@ -8,7 +8,7 @@
         <template v-slot:cell(selected)="row">
           <div class="row align-items-center">
             <div class="dot text-center" :style="{'background-color': colors[row.item.selected]}"></div>
-            {{options[row.item.selected]}}
+            {{statusVariants[row.item.selected]}}
           </div>
         </template>
         <template v-slot:cell(delete)="data">
