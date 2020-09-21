@@ -1,14 +1,13 @@
 <template>
-  <div class="home">
-
-  </div>
+  <table-component/>
 </template>
 
 <script>
 
 
+import TableComponent from '../components/table-component'
 export default {
   name: 'Home',
-  components: {}
+  components: { TableComponent }
 }
 </script>

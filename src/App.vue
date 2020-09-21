@@ -4,11 +4,11 @@
       <b-spinner class="spinner" :variant="'primary'" :key="'primary'"></b-spinner>
     </div>
     <div v-else>
-      <div id="nav">
-        <header-component/>
+      <header-component/>
+      <div class="flex">
         <navigation-component/>
+        <router-view/>
       </div>
-      <router-view/>
     </div>
   </div>
 </template>
@@ -18,14 +18,14 @@
 
   export default {
     components: { NavigationComponent, HeaderComponent },
-    data () {
+    data() {
       return {
-        getSpinner: true
+        getSpinner: true,
       }
     },
     mounted() {
       this.getSpinner = false
-    }
+    },
 
   }
 </script>
@@ -34,12 +34,14 @@
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+    color: #d5d7d9;
+
   }
+
   #nav {
     padding: 0;
   }
+
   .page {
     position: absolute;
     background: rgba(0, 0, 0, 0.3);
@@ -47,9 +49,14 @@
     width: 100%;
     height: 100%;
   }
+
   .spinner {
     z-index: 26;
     position: relative;
     top: 50%;
+  }
+  .flex {
+    display: flex;
+    margin-left: 320px;
   }
 </style>

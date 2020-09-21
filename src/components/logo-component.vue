@@ -3,6 +3,11 @@
     <img src="../assets/images/logo.jpg" alt="logo" class="logo">
   </div>
 </template>
+<script>
+  export default {
+    name: 'logoComponent'
+  }
+</script>
 
 <style scoped lang="scss">
   .logo {
