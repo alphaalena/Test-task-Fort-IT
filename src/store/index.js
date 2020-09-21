@@ -5,27 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    listOfPosition: [],
-    search: ''
+    orders: [],
+    searchValue: ''
   },
   mutations: {
-    changeListOfPosition (state,value) {
-      state.listOfPosition.push(value)
+    addOrder(state,value) {
+      state.orders.push(value)
     },
-    deleteOrder (state, id) {
-     state.listOfPosition = state.listOfPosition.filter(i => i.id !==id)
+    deleteOrder(state, id) {
+     state.orders = state.orders.filter(i => i.id !==id)
     },
-    changeSearch (state, value) {
-      state.search = value
+    setSearchValue(state, value) {
+      state.searchValue = value
     }
   },
-  actions: {
-  },
-  modules: {
-  },
   getters: {
-    filteredOrders (state) {
-      return state.listOfPosition.filter(item => Object.values(item).join().toLowerCase().includes(state.search.toLowerCase()))
+    filteredOrders(state) {
+      return state.orders.filter(item => Object.values(item).join().toLowerCase().includes(state.searchValue.toLowerCase()))
     }
   }
 })
