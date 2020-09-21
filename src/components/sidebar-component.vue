@@ -29,7 +29,7 @@
   import logoComponent from '../components/logo-component'
 
   export default {
-    name: 'navigationComponent',
+    name: 'sidebarComponent',
     components: { logoComponent },
     data() {
       return {

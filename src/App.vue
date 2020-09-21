@@ -6,7 +6,7 @@
     <div v-else>
       <header-component/>
       <div class="flex">
-        <navigation-component/>
+        <sidebar-component/>
         <router-view/>
       </div>
     </div>
@@ -14,10 +14,10 @@
 </template>
 <script>
   import HeaderComponent from './components/header-component'
-  import NavigationComponent from './components/navigation-component'
+  import sidebarComponent from './components/sidebar-component'
 
   export default {
-    components: { NavigationComponent, HeaderComponent },
+    components: { sidebarComponent, HeaderComponent },
     data() {
       return {
         getSpinner: true,
