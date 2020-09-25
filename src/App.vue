@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <header-component/>
+    <HeaderComponent />
     <div class="flex">
-      <sidebar-component/>
-      <router-view/>
+      <SidebarComponent />
+      <router-view />
     </div>
   </div>
 </template>
 <script>
-  import HeaderComponent from './components/header-component'
-  import SidebarComponent from './components/sidebar-component'
+import HeaderComponent from './components/header-component';
+import SidebarComponent from './components/sidebar-component';
 
-  export default {
+export default {
     components: { SidebarComponent, HeaderComponent },
-  }
+};
 </script>
 <style lang="scss">
   #app {
