@@ -8,54 +8,55 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: orders
+    component: orders,
   },
   {
     path: '/extension',
     name: 'extension',
-    component: () => import('../views/extension.vue')
+    component: () => import('../views/extension.vue'),
   },
   {
     path: '/design',
     name: 'design',
-    component: () => import('../views/design.vue')
+    component: () => import('../views/design.vue'),
   },
   {
     path: '/sales',
     name: 'sales',
-    component: () => import('../views/sales.vue')
+    component: () => import('../views/sales.vue'),
   },
   {
     path: '/shopper',
     name: 'shopper',
-    component: () => import('../views/shopper.vue')
+    component: () => import('../views/shopper.vue'),
   },
   {
     path: '/marketing',
     name: 'marketing',
-    component: () => import('../views/marketing.vue')
+    component: () => import('../views/marketing.vue'),
   },
   {
     path: '/system',
     name: 'system',
-    component: () => import('../views/system.vue')
+    component: () => import('../views/system.vue'),
   },
   {
     path: '/helper',
     name: 'helper',
-    component: () => import('../views/helper.vue')
+    component: () => import('../views/helper.vue'),
   },
-  { path: '/contact',
+  {
+    path: '/contact',
     name: 'contact',
-    component: () => import('../views/contact.vue')
+    component: () => import('../views/contact.vue'),
 
-  }
+  },
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
 
 export default router

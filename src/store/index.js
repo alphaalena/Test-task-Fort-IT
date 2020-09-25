@@ -11,25 +11,25 @@ export default new Vuex.Store({
         title: `Заказ ${index}`,
         clientName: `Клиент ${index}`,
         managerName: `Менеджер ${index}`,
-        status: ['a', 'b', 'c'][index % 3],
+        status: [ 'a', 'b', 'c' ][index % 3],
       }
     }),
-    searchValue: ''
+    searchValue: '',
   },
   mutations: {
-    addOrder(state,value) {
+    addOrder (state, value) {
       state.orders.push(value)
     },
-    deleteOrder(state, id) {
-     state.orders = state.orders.filter(i => i.id !==id)
+    deleteOrder (state, id) {
+      state.orders = state.orders.filter(i => i.id !== id)
     },
-    setSearchValue(state, value) {
+    setSearchValue (state, value) {
       state.searchValue = value
-    }
+    },
   },
   getters: {
-    filteredOrders(state) {
+    filteredOrders (state) {
       return state.orders.filter(item => Object.values(item).join().toLowerCase().includes(state.searchValue.toLowerCase()))
-    }
-  }
+    },
+  },
 })

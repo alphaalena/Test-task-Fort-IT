@@ -1,17 +1,22 @@
 <template>
   <div class="logo-wrapper">
-    <img src="../assets/images/logo.jpg" alt="logo" class="logo">
+    <img
+      alt="logo"
+      class="logo"
+      src="../assets/images/logo.jpg"
+    >
   </div>
 </template>
 <script>
-  export default {
-    name: 'logoComponent'
-  }
+export default {
+  name: 'LogoComponent',
+}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   .logo {
     padding-bottom: 10px;
+
     &-wrapper {
       height: 150px;
       width: 100%;

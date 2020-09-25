@@ -1,38 +1,62 @@
 <template>
-  <b-navbar variant="light" type="light" sticky>
+  <b-navbar
+    sticky
+    type="light"
+    variant="light"
+  >
     <b-navbar-nav class="ml-auto mr-5">
-      <b-form-input v-model="searchValue" placeholder="Поиск"></b-form-input>
-      <add-order-component/>
-      <b-nav-item-dropdown class="ml-5" text="text">
-        <template v-slot:button-content class="position-absolute dropdown-menu-right">
-            <span>
-               John Doe
-              </span>
-          <b-icon class="arrow-left ml-2" icon="person" scale="1"></b-icon>
+      <b-form-input
+        v-model="searchValue"
+        placeholder="Поиск"
+      />
+      <add-order-component />
+      <b-nav-item-dropdown
+        class="ml-5"
+        text="text"
+      >
+        <template
+          v-slot:button-content
+          class="position-absolute dropdown-menu-right"
+        >
+          <span>
+            John Doe
+          </span>
+          <b-icon
+            class="arrow-left ml-2"
+            icon="person"
+            scale="1"
+          />
         </template>
-        <b-dropdown-item href="#" exact>Войти</b-dropdown-item>
-        <b-dropdown-item href="#">Выйти</b-dropdown-item>
+        <b-dropdown-item
+          exact
+          href="#"
+        >
+          Войти
+        </b-dropdown-item>
+        <b-dropdown-item href="#">
+          Выйти
+        </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
   </b-navbar>
 </template>
 <script>
-  import addOrderComponent from './add-order-component'
+import addOrderComponent from './add-order-component'
 
-  export default {
-    name: 'headerComponent',
-    components: { addOrderComponent },
-    data() {
-      return {
-        searchValue: '',
-      }
+export default {
+  name: 'HeaderComponent',
+  components: { addOrderComponent },
+  data () {
+    return {
+      searchValue: '',
+    }
+  },
+  watch: {
+    searchValue (value) {
+      this.$store.commit('setSearchValue', value)
     },
-    watch: {
-      searchValue(value) {
-        this.$store.commit('setSearchValue', value)
-      },
-    },
-  }
+  },
+}
 </script>
 <style lang="scss">
   .dropdown-toggle::after {

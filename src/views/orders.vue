@@ -1,13 +1,14 @@
 <template>
-  <orders-component/>
+  <OrdersComponent />
 </template>
 
 <script>
 
 
 import OrdersComponent from '../components/orders-component'
+
 export default {
-  name: 'orders',
-  components: { OrdersComponent }
+  name: 'Orders',
+  components: { OrdersComponent },
 }
 </script>

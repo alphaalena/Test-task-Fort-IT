@@ -8,12 +8,12 @@
   </div>
 </template>
 <script>
-import HeaderComponent from './components/header-component';
-import SidebarComponent from './components/sidebar-component';
+import HeaderComponent from './components/header-component'
+import SidebarComponent from './components/sidebar-component'
 
 export default {
-    components: { SidebarComponent, HeaderComponent },
-};
+  components: { SidebarComponent, HeaderComponent },
+}
 </script>
 <style lang="scss">
   #app {
@@ -41,6 +41,7 @@ export default {
     position: relative;
     top: 50%;
   }
+
   .flex {
     display: flex;
     margin-left: 320px;
